@@ -37,7 +37,7 @@ if st.button("Popsicle it!"):
             st.markdown("👋 Hey! Popsicle is on it...")
 
         agent = get_agent(agent_type, user_info)
-        # NEW: stream updates as tasks are created
+        #stream updates as tasks are created
         response_box = st.empty()
         for update in agent.handle_input(plain_text_input):
             response_box.markdown(update)
