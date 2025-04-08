@@ -48,14 +48,14 @@ class JiraAgent(BaseAgent):
                 if task['type'] == "Epic":
                     new_issue = self.jira.create_issue(fields=issue_dict)
                     epic_key = new_issue.key
-                    created.append(f"✅ {task['type']}: {new_issue.key} - {task['summary']}")
+                    created.append(f"✅ {task['type']}: {new_issue.key} - {task['summary']}\n")
                 else:
                     if epic_key:
                         issue_dict['parent'] = {'key': epic_key}  # Parent Epic field
                     new_issue = self.jira.create_issue(fields=issue_dict)
-                    created.append(f"✅ {task['type']}: {new_issue.key} - {task['summary']}")
+                    created.append(f"✅ {task['type']}: {new_issue.key} - {task['summary']} \n")
 
-            return "\n".join(created)
+                yield "\n".join(created)
 
         except Exception as e:
-            return f"❌ Error: {str(e)}"
+            yield f"❌ Error: {str(e)}"
