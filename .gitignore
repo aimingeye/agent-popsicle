@@ -71,6 +71,9 @@ instance/
 # Sphinx documentation
 docs/_build/
 
+# Streamlit stuff:
+.streamlit/
+
 # PyBuilder
 .pybuilder/
 target/
@@ -172,3 +175,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+test.py
